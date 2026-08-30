@@ -1,10 +1,10 @@
-# STORM MUSIC PLAYER
+<h1 align="center">STORM MUSIC PLAYER</h1>
 
 ## **О проекте**
 STORM MUSIC PLAYER — аудиоплеер для воспроизведения высококачественного аудио (Hi-Res FLAC, ALAC, WAV, DSD) и музыки из ретро-видеоигр (VGM, SPC, NSF, MOD, XM, IT, S3M, HES, GBS, PSF).
 
 ## **Происхождение и форки**
-Оригинальная разработка ReiKatari с интеграцией открытых звуковых библиотек BASS Audio и Game_Music_Emu.
+Оригинальная разработка с интеграцией открытых звуковых библиотек BASS Audio и Game_Music_Emu.
 
 ## **Технологический стек**
 - **Языки программирования**: C# (.NET 9.0), C++
@@ -20,16 +20,13 @@ STORM MUSIC PLAYER — аудиоплеер для воспроизведени�
 - **Операционные системы**: Windows 10, Windows 11 (x64)
 
 ## **Установка и запуск**
-1. Скачайте инсталлятор из **Releases**.
+1. Скачайте инсталлятор `STORM_MUSIC_PLAYER_<версия>_Setup.exe` или архив `STORM_MUSIC_PLAYER_<версия>.zip` из **Releases**.
 2. Установите и наслаждайтесь любимой музыкой.
 
 ## **Безопасность и цифровые подписи**
 Подписано сертификатом **CN=STORM SOFT, O=STORM EDEN** (SHA-256 Authenticode).
 
-## **Авторы и лицензия**
-- **Автор проекта**: ReiKatari
-- **Лицензия**: MIT License
-
 ## **Благодарности**
-- **Un4seen Developments** — за звуковую библиотеку BASS.
-- **Shay Green и Blargg** — за библиотеку Game_Music_Emu.
+- **Ian Luck и Un4seen Developments** — за профессиональную звуковую библиотеку BASS Audio.
+- **Shay Green (Blargg)** — за эталонную эмуляцию звуковых чипов ретро-консолей Game_Music_Emu.
+- **Команда Xiph.Org** — за форматы FLAC и Ogg Vorbis.
