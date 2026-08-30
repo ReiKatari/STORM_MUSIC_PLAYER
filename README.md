@@ -1,65 +1,35 @@
-<div align="center">
+# STORM MUSIC PLAYER
 
-<img src="logo.png" width="128" height="128" alt="STORM MUSIC PLAYER Logo" />
+## **О проекте**
+STORM MUSIC PLAYER — аудиоплеер для воспроизведения высококачественного аудио (Hi-Res FLAC, ALAC, WAV, DSD) и музыки из ретро-видеоигр (VGM, SPC, NSF, MOD, XM, IT, S3M, HES, GBS, PSF).
 
-# ⚡ STORM MUSIC PLAYER
+## **Происхождение и форки**
+Оригинальная разработка ReiKatari с интеграцией открытых звуковых библиотек BASS Audio и Game_Music_Emu.
 
-<p align="center">
-  <b>Аудиоплеер с поддержкой Hi-Res форматов, визуализацией эквалайзера и гибким управлением плейлистами.</b>
-</p>
+## **Технологический стек**
+- **Языки программирования**: C# (.NET 9.0), C++
+- **Интерфейс**: WPF, XAML, Спектроанализатор и визуализация
+- **Звуковой движок**: BASS Audio Library, Game_Music_Emu (GME), WASAPI Exclusive Mode
 
-[![Version](https://img.shields.io/badge/version-1.0.0-00D2FF.svg?style=for-the-badge)](https://github.com/ReiKatari/STORM_MUSIC_PLAYER)
-[![Platform](https://img.shields.io/badge/Platform-Windows%2011%20%7C%2010-0EA5E9.svg?style=for-the-badge)](https://github.com/ReiKatari/STORM_MUSIC_PLAYER)
-[![Publisher](https://img.shields.io/badge/Publisher-STORM%20TEAM-10B981.svg?style=for-the-badge)](https://github.com/ReiKatari)
-[![Developer](https://img.shields.io/badge/Author-ReiKatari-F59E0B.svg?style=for-the-badge)](https://github.com/ReiKatari)
-[![Signed](https://img.shields.io/badge/Security-SHA256%20Signed-10B981.svg?style=for-the-badge)](https://github.com/ReiKatari)
+## **Ключевые возможности**
+- **Поддержка чиптюнов и трекерной музыки**: Нативное воспроизведение саундтреков NES, SNES, Sega Mega Drive, Game Boy, Amiga, PS1.
+- **Вывод звука без потерь (Bit-Perfect)**: Поддержка WASAPI Exclusive Mode и ASIO для прямого вывода на ЦАП.
+- **Встроенный эквалайзер и эффекты**: 10-полосный эквалайзер, реверберация и плавный кроссфейд треков.
 
-</div>
+## **Поддерживаемые платформы и эмуляторы**
+- **Операционные системы**: Windows 10, Windows 11 (x64)
 
----
+## **Установка и запуск**
+1. Скачайте инсталлятор из **Releases**.
+2. Установите и наслаждайтесь любимой музыкой.
 
-## 🌟 О проекте / Overview
+## **Безопасность и цифровые подписи**
+Подписано сертификатом **CN=STORM SOFT, O=STORM EDEN** (SHA-256 Authenticode).
 
-**STORM MUSIC PLAYER** — компонент программного комплекса **STORM**, разработанный с упором на максимальную производительность, современный дизайн и надёжность.
+## **Авторы и лицензия**
+- **Автор проекта**: ReiKatari
+- **Лицензия**: MIT License
 
-* **Версия:** $ver
-* **Издатель:** STORM TEAM
-* **Ведущий разработчик:** ReiKatari
-* **Технологический стек:** $tech
-
----
-
-## 🚀 Установка / Installation
-
-Установка производится через единый инсталлятор **STORM INSTALLER**:
-
-1. Запустите файл STORM_STORM_MUSIC_PLAYER_1.0.0_Setup.exe.
-2. Выберите режим:
-   * **Стандартная установка** — установка в C:\Program Files\STORM MUSIC PLAYER с созданием ярлыков и регистрацией в системе.
-   * **Портативная версия** — распаковка в любую выбранную папку без изменения реестра.
-3. Опция автоматической регистрации доверенного сертификата STORM TEAM исключает предупреждения SmartScreen и Smart App Control.
-
----
-
-## 🛡️ Безопасность и Цифровая подпись / Code Signing
-
-Все исполняемые файлы и инсталляторы подписаны сертификатом **STORM TEAM** с использованием хэширования SHA-256 и RFC 3161 Timestamping.
-
-* Для ручной установки сертификата в хранилище доверенных корневых центров запустите:
-  Files\Разблокировать_И_Установить_Сертификат.bat от имени Администратора.
-
----
-
-## 📁 Структура репозитория / Structure
-
-* Assembling/ — скомпилированные релизные бинарные файлы и зависимости программы.
-* Files/ — инсталлятор, сертификат STORM_Certificate.cer и сервисные скрипты.
-* Sources/ — исходный код решения.
-
----
-
-## 👥 Авторы и Лицензия / Credits
-
-* **Разработчик:** [ReiKatari](https://github.com/ReiKatari)
-* **Издатель:** **STORM TEAM**
-* © 2026 STORM TEAM. Все права защищены.
+## **Благодарности**
+- **Un4seen Developments** — за звуковую библиотеку BASS.
+- **Shay Green и Blargg** — за библиотеку Game_Music_Emu.
