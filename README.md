@@ -23,9 +23,6 @@ STORM MUSIC PLAYER — аудиоплеер для воспроизведени�
 1. Скачайте инсталлятор `STORM_MUSIC_PLAYER_<версия>_Setup.exe` или архив `STORM_MUSIC_PLAYER_<версия>.zip` из **Releases**.
 2. Установите и наслаждайтесь любимой музыкой.
 
-## **Безопасность и цифровые подписи**
-Подписано сертификатом **CN=STORM SOFT, O=STORM EDEN** (SHA-256 Authenticode).
-
 ## **Благодарности**
 - **Ian Luck и Un4seen Developments** — за профессиональную звуковую библиотеку BASS Audio.
 - **Shay Green (Blargg)** — за эталонную эмуляцию звуковых чипов ретро-консолей Game_Music_Emu.
