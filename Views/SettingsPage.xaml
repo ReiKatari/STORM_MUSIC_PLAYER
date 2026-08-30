@@ -1,0 +1,77 @@
+<Page
+    x:Class="StormMusicPlayer.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <ScrollViewer Padding="28">
+        <StackPanel Spacing="24" MaxWidth="600" HorizontalAlignment="Left">
+            
+            <!-- Page Header block -->
+            <StackPanel Spacing="6" Margin="0,0,0,12">
+                <TextBlock Text="ПАРАМЕТРЫ ПЛЕЕРА" Style="{StaticResource StormHeaderLargeStyle}"/>
+                <TextBlock Text="НАСТРОЙКА СИСТЕМНОГО ОКРУЖЕНИЯ" Style="{StaticResource StormTextSubtleBoldStyle}" Foreground="{ThemeResource AccentColorBrush}"/>
+            </StackPanel>
+
+            <!-- Card 1: Theme & Visuals -->
+            <Border CornerRadius="16" Background="{ThemeResource PlayerCardBackgroundBrush}" BorderThickness="1.5" BorderBrush="{ThemeResource PlayerCardBorderBrush}" Padding="20">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="ОФОРМЛЕНИЕ И ЦВЕТОВАЯ СХЕМА" Style="{StaticResource StormHeaderMediumStyle}" />
+                    
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="ТЕМА ПРИЛОЖЕНИЯ" Style="{StaticResource StormTextBoldStyle}" />
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <RadioButton x:Name="ThemeDarkRadio" Content="Тёмная" Checked="OnThemeRadioChecked" Tag="Dark" IsChecked="True" FontFamily="Century Gothic" FontWeight="Bold"/>
+                            <RadioButton x:Name="ThemeLightRadio" Content="Светлая" Checked="OnThemeRadioChecked" Tag="Light" FontFamily="Century Gothic" FontWeight="Bold"/>
+                            <RadioButton x:Name="ThemeDefaultRadio" Content="Системная" Checked="OnThemeRadioChecked" Tag="Default" FontFamily="Century Gothic" FontWeight="Bold"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Spacing="8" Margin="0,8,0,0">
+                        <TextBlock Text="АКЦЕНТНЫЙ ЦВЕТ" Style="{StaticResource StormTextBoldStyle}" />
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Button Content="Crimson Red" Click="OnAccentColorClick" Tag="#D32F2F" Background="#D32F2F" Foreground="White" CornerRadius="8" Padding="12,6,12,6"/>
+                            <Button Content="Neon Blue" Click="OnAccentColorClick" Tag="#00BFFF" Background="#00BFFF" Foreground="Black" CornerRadius="8" Padding="12,6,12,6"/>
+                            <Button Content="Emerald Green" Click="OnAccentColorClick" Tag="#2E8B57" Background="#2E8B57" Foreground="White" CornerRadius="8" Padding="12,6,12,6"/>
+                            <Button Content="Electric Purple" Click="OnAccentColorClick" Tag="#8A2BE2" Background="#8A2BE2" Foreground="White" CornerRadius="8" Padding="12,6,12,6"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Card 2: Visualizer Sensitivity -->
+            <Border CornerRadius="16" Background="{ThemeResource PlayerCardBackgroundBrush}" BorderThickness="1.5" BorderBrush="{ThemeResource PlayerCardBorderBrush}" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="ЧУВСТВИТЕЛЬНОСТЬ ВИЗУАЛИЗАТОРА" Style="{StaticResource StormHeaderMediumStyle}" />
+                    <TextBlock Text="Настройка множителя амплитуды для Win2D спектрометра." Style="{StaticResource StormTextSubtleBoldStyle}" />
+                    <Slider x:Name="SensitivitySlider" Minimum="0.5" Maximum="5.0" StepFrequency="0.1" Value="2.2" ValueChanged="OnSensitivityChanged" Margin="0,8,0,0" />
+                </StackPanel>
+            </Border>
+
+            <!-- Card 3: App info & Credits -->
+            <Border CornerRadius="16" Background="{ThemeResource PlayerCardBackgroundBrush}" BorderThickness="1.5" BorderBrush="{ThemeResource PlayerCardBorderBrush}" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="О ПРОГРАММЕ" Style="{StaticResource StormHeaderMediumStyle}" />
+                    
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBlock Text="Название:" Style="{StaticResource StormTextBoldStyle}"/>
+                        <TextBlock Text="STORM MUSIC PLAYER" Style="{StaticResource StormTextSubtleBoldStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBlock Text="Версия:" Style="{StaticResource StormTextBoldStyle}"/>
+                        <TextBlock Text="0.0.1 (Official Build)" Style="{StaticResource StormTextSubtleBoldStyle}" Foreground="{ThemeResource AccentColorBrush}"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="4" Margin="0,8,0,0">
+                        <TextBlock Text="Описание:" Style="{StaticResource StormTextBoldStyle}"/>
+                        <TextBlock Text="Высокопроизводительный музыкальный плеер на базе Windows App SDK, Cooley-Tukey Radix-2 FFT DSP и аппаратного GPU-рендеринга Win2D. Разработано с использованием глубоких Mica-градиентов и шрифта Century Gothic." TextWrapping="Wrap" Style="{StaticResource StormTextSubtleBoldStyle}" Width="520"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

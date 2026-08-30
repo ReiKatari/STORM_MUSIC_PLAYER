@@ -1,0 +1,63 @@
+<Application
+    x:Class="StormMusicPlayer.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Include standard WinUI controls resources FIRST -->
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="AccentColorBrush" Color="#D32F2F" />
+                    <SolidColorBrush x:Key="VisualizerOverlayBrush" Color="Black" Opacity="0.55" />
+                    <SolidColorBrush x:Key="PlayerCardBackgroundBrush" Color="#1A1A1A" Opacity="0.75" />
+                    <SolidColorBrush x:Key="PlayerCardBorderBrush" Color="#333333" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="AccentColorBrush" Color="#D32F2F" />
+                    <SolidColorBrush x:Key="VisualizerOverlayBrush" Color="White" Opacity="0.75" />
+                    <SolidColorBrush x:Key="PlayerCardBackgroundBrush" Color="#FFFFFF" Opacity="0.82" />
+                    <SolidColorBrush x:Key="PlayerCardBorderBrush" Color="#E5E5E5" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="AccentColorBrush" Color="#D32F2F" />
+                    <SolidColorBrush x:Key="VisualizerOverlayBrush" Color="Black" Opacity="0.55" />
+                    <SolidColorBrush x:Key="PlayerCardBackgroundBrush" Color="#1A1A1A" Opacity="0.75" />
+                    <SolidColorBrush x:Key="PlayerCardBorderBrush" Color="#333333" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <!-- Core Font Family -->
+            <FontFamily x:Key="AppFontFamily">Century Gothic, Segoe UI, Arial</FontFamily>
+
+            <!-- Text styling variants -->
+            <Style x:Key="StormHeaderLargeStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="28" />
+            </Style>
+
+            <Style x:Key="StormHeaderMediumStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+
+            <Style x:Key="StormTextBoldStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="StormTextSubtleBoldStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Opacity" Value="0.6" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

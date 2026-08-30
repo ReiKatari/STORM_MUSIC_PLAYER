@@ -1,0 +1,18 @@
+Main started
+Windows App SDK Bootstrapper initialized successfully
+CreateDispatcherQueueController returned HRESULT: 0x00000000
+Application.Start callback invoked. WinUI Queue Null: False, WinRT Queue Null: False
+About to create new App()...
+App constructor entered
+App.InitializeComponent completed
+App DI Services built
+App() created successfully.
+OnLaunched entered. Queue Null: False
+MainWindow constructor entered
+MainWindow InitializeComponent completed
+MainWindow ExtendsContentIntoTitleBar completed
+MainWindow SetTitleBar completed
+MainWindow SetIcon completed
+MainWindow Navigate completed
+MainWindow created
+MainWindow activated

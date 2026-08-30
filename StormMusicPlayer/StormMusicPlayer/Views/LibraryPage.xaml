@@ -1,0 +1,118 @@
+<Page
+    x:Class="StormMusicPlayer.Views.LibraryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid Padding="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Page Title Area -->
+            <RowDefinition Height="Auto"/> <!-- Action Bar -->
+            <RowDefinition Height="*"/>    <!-- Track List -->
+        </Grid.RowDefinitions>
+
+        <!-- Page Header block -->
+        <StackPanel Grid.Row="0" Spacing="6" Margin="0,0,0,16">
+            <TextBlock Text="МЕДИАТЕКА" Style="{StaticResource StormHeaderLargeStyle}"/>
+            <TextBlock Text="ДОСТУПНЫЕ АУДИОЗАПИСИ И ЛОКАЛЬНЫЕ ИСТОЧНИКИ" Style="{StaticResource StormTextSubtleBoldStyle}" Foreground="{StaticResource AccentColorBrush}"/>
+        </StackPanel>
+
+        <!-- Action Bar -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="16" Margin="0,0,0,20">
+            <Button Click="OnImportFilesClick" Style="{StaticResource AccentButtonStyle}" Height="40" Padding="16,0,16,0" CornerRadius="8">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B5;" FontSize="16"/>
+                            <TextBlock Text="Импортировать MP3/WAV" FontWeight="Bold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </StackPanel>
+
+        <!-- List View -->
+        <Border Grid.Row="2" CornerRadius="20" Background="{ThemeResource PlayerCardBackgroundBrush}" BorderThickness="1.5" BorderBrush="{ThemeResource PlayerCardBorderBrush}" Padding="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Headers (Synced perfectly with list layout columns) -->
+                <Grid Grid.Row="0" Margin="16,0,16,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>  <!-- Cover -->
+                        <ColumnDefinition Width="2*"/> <!-- Title -->
+                        <ColumnDefinition Width="2*"/> <!-- Artist -->
+                        <ColumnDefinition Width="*"/>  <!-- Duration -->
+                        <ColumnDefinition Width="Auto"/><!-- Actions -->
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="ОБЛОЖКА" Style="{StaticResource StormTextSubtleBoldStyle}" Grid.Column="0" HorizontalAlignment="Left"/>
+                    <TextBlock Text="НАЗВАНИЕ" Style="{StaticResource StormTextSubtleBoldStyle}" Grid.Column="1" Margin="12,0,12,0"/>
+                    <TextBlock Text="ИСПОЛНИТЕЛЬ" Style="{StaticResource StormTextSubtleBoldStyle}" Grid.Column="2" Margin="0,0,12,0"/>
+                    <TextBlock Text="ДЛИТЕЛЬНОСТЬ" Style="{StaticResource StormTextSubtleBoldStyle}" Grid.Column="3"/>
+                </Grid>
+
+                <ListView x:Name="TracksListView" Grid.Row="1" SelectionMode="None">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="16,10,16,10"/>
+                            <Setter Property="Margin" Value="0,4,0,4"/>
+                            <Setter Property="CornerRadius" Value="12"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Rounded Cover Image Placeholder / Binder -->
+                                <Border Grid.Column="0" Width="44" Height="44" CornerRadius="8" Background="#101010" BorderBrush="{ThemeResource PlayerCardBorderBrush}" BorderThickness="1.5" HorizontalAlignment="Left">
+                                    <Grid>
+                                        <Image Source="{Binding CoverImagePath}" Stretch="UniformToFill"/>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE189;" FontSize="16" Foreground="DimGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+
+                                <!-- Title -->
+                                <TextBlock Text="{Binding Title}" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource StormTextBoldStyle}" Margin="12,0,12,0" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+
+                                <!-- Artist -->
+                                <TextBlock Text="{Binding Artist}" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource StormTextSubtleBoldStyle}" Foreground="{ThemeResource AccentColorBrush}" Margin="0,0,12,0"/>
+
+                                <!-- Duration -->
+                                <TextBlock Text="{Binding FormattedDuration}" Grid.Column="3" VerticalAlignment="Center" Style="{StaticResource StormTextSubtleBoldStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                <!-- Actions (Translucent circular vector buttons) -->
+                                <StackPanel Grid.Column="4" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                    <!-- Play Button -->
+                                    <Button Click="OnPlayTrackClick" Tag="{Binding}" Width="36" Height="36" CornerRadius="18" ToolTipService.ToolTip="Воспроизвести" Background="Transparent" BorderThickness="1" BorderBrush="{ThemeResource PlayerCardBorderBrush}">
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE102;" FontSize="14" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                                    </Button>
+
+                                    <!-- Add to Playlist Button -->
+                                    <Button Click="OnAddToPlaylistClick" Tag="{Binding}" Width="36" Height="36" CornerRadius="18" ToolTipService.ToolTip="Добавить в плейлист" Background="Transparent" BorderThickness="1" BorderBrush="{ThemeResource PlayerCardBorderBrush}">
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE109;" FontSize="14" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

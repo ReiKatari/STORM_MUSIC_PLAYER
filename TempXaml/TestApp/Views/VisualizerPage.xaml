@@ -1,0 +1,64 @@
+<Page
+    x:Class="StormMusicPlayer.Views.VisualizerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:StormMusicPlayer.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid Padding="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Page Title Area -->
+            <RowDefinition Height="*"/>    <!-- Rendering Workspace & Sidebar Controls -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="340"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Dynamic Page Header block -->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Spacing="6" Margin="0,0,0,24">
+            <TextBlock Text="СТУДИЯ ВИЗУАЛИЗАЦИИ" Style="{StaticResource StormHeaderLargeStyle}"/>
+            <TextBlock Text="НАСТРОЙКА РЕНДЕРИНГА В РЕАЛЬНОМ ВРЕМЕНИ" Style="{StaticResource StormTextSubtleBoldStyle}" Foreground="{StaticResource AccentColorBrush}"/>
+        </StackPanel>
+
+        <!-- Dynamic GPU-Accelerated rendering zone -->
+        <Border Grid.Row="1" Grid.Column="0" CornerRadius="20" Background="Black" BorderThickness="1.5" BorderBrush="#2A2A2A" Margin="0,0,20,0">
+            <controls:VisualizerControl x:Name="PageVisualizer" EffectIndex="0" Sensitivity="1.8" />
+        </Border>
+
+        <!-- Sidebar visualizer controls dashboard -->
+        <Border Grid.Row="1" Grid.Column="1" CornerRadius="20" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" Padding="24">
+            <StackPanel Spacing="24">
+                <TextBlock Text="УПРАВЛЕНИЕ СТУДИЕЙ" Style="{StaticResource StormHeaderMediumStyle}"/>
+
+                <!-- Render selection panel -->
+                <StackPanel Spacing="10">
+                    <TextBlock Text="ЭФФЕКТЫ ВИЗУАЛИЗАЦИИ" Style="{StaticResource StormTextBoldStyle}" />
+                    
+                    <ListView x:Name="EffectListView" SelectionMode="Single" SelectedIndex="0" SelectionChanged="OnEffectSelectionChanged">
+                        <!-- Scale up to 30 custom visual effects (names strictly BOLD) -->
+                        <ListViewItem Content="Classic Spectrum" FontFamily="Century Gothic" FontWeight="Bold"/>
+                        <ListViewItem Content="Circular Waveform" FontFamily="Century Gothic" FontWeight="Bold"/>
+                        <ListViewItem Content="Retro Digital VU Meters" FontFamily="Century Gothic" FontWeight="Bold"/>
+                        <ListViewItem Content="3D Terrain Waterfall" FontFamily="Century Gothic" FontWeight="Bold" IsEnabled="False"/>
+                        <ListViewItem Content="Particle Vortex" FontFamily="Century Gothic" FontWeight="Bold" IsEnabled="False"/>
+                        <ListViewItem Content="Neon Ribbons" FontFamily="Century Gothic" FontWeight="Bold" IsEnabled="False"/>
+                        <ListViewItem Content="Fire Embers" FontFamily="Century Gothic" FontWeight="Bold" IsEnabled="False"/>
+                        <ListViewItem Content="Radial Bars" FontFamily="Century Gothic" FontWeight="Bold" IsEnabled="False"/>
+                    </ListView>
+                </StackPanel>
+
+                <!-- Sensitivity level tuner -->
+                <StackPanel Spacing="10">
+                    <TextBlock Text="ЧУВСТВИТЕЛЬНОСТЬ" Style="{StaticResource StormTextBoldStyle}" />
+                    <Slider x:Name="SensitivitySlider" Minimum="0.5" Maximum="5.0" StepFrequency="0.1" Value="1.8" ValueChanged="OnSensitivityChanged"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
+
