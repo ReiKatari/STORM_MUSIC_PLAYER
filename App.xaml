@@ -4,6 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Include standard WinUI controls resources FIRST -->
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
                     <SolidColorBrush x:Key="AccentColorBrush" Color="#D32F2F" />
@@ -25,70 +30,33 @@
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
-            <ResourceDictionary.MergedDictionaries>
-                <!-- Include standard WinUI controls resources -->
-                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-            </ResourceDictionary.MergedDictionaries>
-
-            <!-- Storm Crimson Accent Theme & Core Font Family Definition (Fallbacks) -->
-            <SolidColorBrush x:Key="AccentColorBrush" Color="#D32F2F" />
+            <!-- Core Font Family -->
             <FontFamily x:Key="AppFontFamily">Century Gothic, Segoe UI, Arial</FontFamily>
 
-            <!-- Default TextBlock Style enforcing Century Gothic throughout the app -->
-            <Style TargetType="TextBlock">
-                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
-                <Setter Property="TextWrapping" Value="NoWrap" />
-                <Setter Property="TextTrimming" Value="CharacterEllipsis" />
-            </Style>
-
-            <!-- Text styling variants strictly using BOLD weights -->
+            <!-- Text styling variants -->
             <Style x:Key="StormHeaderLargeStyle" TargetType="TextBlock">
                 <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="FontSize" Value="28" />
-                <Setter Property="Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
             </Style>
 
             <Style x:Key="StormHeaderMediumStyle" TargetType="TextBlock">
                 <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="FontSize" Value="20" />
-                <Setter Property="Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
             </Style>
 
             <Style x:Key="StormTextBoldStyle" TargetType="TextBlock">
                 <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
             </Style>
 
             <Style x:Key="StormTextSubtleBoldStyle" TargetType="TextBlock">
                 <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="FontSize" Value="12" />
-                <Setter Property="Foreground" Value="{ThemeResource TextFillColorSecondaryBrush}" />
-            </Style>
-
-            <!-- Force custom Century Gothic Bold on control labels -->
-            <Style TargetType="NavigationViewItem">
-                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
-                <Setter Property="FontWeight" Value="Bold" />
-            </Style>
-            
-            <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
-                <Setter Property="FontWeight" Value="Bold" />
-            </Style>
-            
-            <Style TargetType="ComboBox">
-                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
-                <Setter Property="FontWeight" Value="Bold" />
-            </Style>
-
-            <Style TargetType="ListViewItem">
-                <Setter Property="FontFamily" Value="{StaticResource AppFontFamily}" />
-                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Opacity" Value="0.6" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

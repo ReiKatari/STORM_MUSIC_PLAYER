@@ -35,6 +35,13 @@ namespace StormMusicPlayer
             try
             {
                 System.IO.File.AppendAllText("E:\\STORM MUSIC PLAYER\\StormMusicPlayer\\StormMusicPlayer\\test.txt", "App constructor entered\n");
+                
+                this.UnhandledException += (sender, e) =>
+                {
+                    System.IO.File.AppendAllText("E:\\STORM MUSIC PLAYER\\StormMusicPlayer\\StormMusicPlayer\\test.txt", $"UnhandledException: {e.Exception}\n");
+                    e.Handled = true;
+                };
+                
                 this.InitializeComponent();
                 System.IO.File.AppendAllText("E:\\STORM MUSIC PLAYER\\StormMusicPlayer\\StormMusicPlayer\\test.txt", "App.InitializeComponent completed\n");
 
